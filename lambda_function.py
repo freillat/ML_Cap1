@@ -1,4 +1,5 @@
-import tensorflow.lite as tflite
+# import tensorflow.lite as tflite
+import tflite_runtime.interpreter as tflite
 import numpy as np
 
 from io import BytesIO
@@ -52,3 +53,5 @@ def lambda_handler(event, context):
     url = event['url']
     result = prediction(url)
     return result
+
+# print(prediction(url))
