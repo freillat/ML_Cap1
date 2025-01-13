@@ -54,6 +54,10 @@ Alternatively, run a command inside the virtualenv with pipenv run, such as: pip
 
 To use the docker setup you will need to:
 
-build the docker container running the following command in the project directory which contains the Dockerfile: docker build -t satellite_model:latest .
-run the docker image with the following command: docker run -p 8080:8080 satellite_model:latest
+build the docker container running the following command in the project directory which contains the Dockerfile:
+docker build -t satellite_model:latest .
+
+run the docker image with the following command:
+docker run -p 8080:8080 satellite_model:latest
+
 then you can use test.py to run a test with the following command: pipenv run python test.py
