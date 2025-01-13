@@ -31,7 +31,9 @@ To evaluate the performance of the trained model, the following metric will be u
 ## Conclusion
 This project provides an opportunity to leverage deep learning techniques, specifically CNNs, to tackle the challenging problem of satellite image classification. By the end of the project, we aim to have a model that can accurately classify satellite images into predefined categories, offering significant potential for various applications, including environmental monitoring, urban planning, disaster response, and land use classification.
 
-About the files:
+
+
+## About the files:
 
 1. dataset folder:
 This is split into 4 subfolders corresponding to the 4 image categories (cloudy, desert, green area and water) with 5631 images in total
@@ -42,8 +44,16 @@ This is split into 4 subfolders corresponding to the 4 image categories (cloudy,
 
 4. model_2025_satellite.keras and model_2025_satellite.tflite model files from the execution of the training script
 
+5. lambda_function.py and test.py are scripts that provide a lambda function for cloud deployment and a python test script to be run locally (input within the script is the url of an image that gets passed to the model running locally using the lambda function in a docker image)
+
 Notes: environment is provided using pipenv thourgh Pipfile and Pipfile.lock
 To install pipenv: pip install pipenv
 Then install the dependencies with: pipenv intall
 To activate this project's virtualenv, run pipenv shell.
 Alternatively, run a command inside the virtualenv with pipenv run, such as: pipenv run python train.py
+
+To use the docker setup you will need to:
+
+build the docker container running the following command in the project directory which contains the Dockerfile: docker build -t satellite_model:latest .
+run the docker image with the following command: docker run -p 8080:8080 satellite_model:latest
+then you can use test.py to run a test with the following command: pipenv run python test.py
